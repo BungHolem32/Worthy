@@ -28,7 +28,7 @@ class ApiController {
     let configurations = await resolveConfigurationByJewelryType(jewelryData.type);
     let price = await calculatePrice(jewelryData,configurations);
 
-    res.json({status:res.statusCode,data:{price:price}})
+    res.json({status:res.statusCode,data:{price:price},message:'calculate the final price of jewelry according to his categories'})
   }
 }
 
