@@ -4,6 +4,6 @@ import fieldsValidation from '../config/validation';
 
 const router = express.Router();
 
-router.post('/calculate', fieldsValidation , ApiController.calculate);
+router.post('/calculatePrice', fieldsValidation , ApiController.calculate);
 
 export default router;

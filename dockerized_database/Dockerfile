@@ -7,3 +7,6 @@ ENV MYSQL_DATABASE worthy_dev
 # executed during container startup
 COPY ./sql-scripts/ /docker-entrypoint-initdb.d/
 
+
+
+
