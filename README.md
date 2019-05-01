@@ -25,13 +25,19 @@ Please add a new feature to enable this.
  
  this api response to http://localhost:3000/api/calculatePrice
  
- METHOD:POST
- BODY params:
- - **weight**: INTEGER
- - **cut**   ['ideal','poor','fair',  'very good','good']
- - **color**  ['d','e', 'f',g', 'h','i','j', 'k','l','m','n', 'o','p','q', 'r','s','t','u', 'v', 'w', 'x', 'y', 'z']
- - **clarity** [ 'fl', 'if','vvs1', 'vvs2','vs1', 'vs2', 'si1', 'si2', 'si3', 'i1','i2','i3'],
+ ```
+ 1. Method: POST
+ 2. Params: {
+  weight :integer,
+  type:string ['diamond'], // other can be add for future usage
+  cut:string  = ['ideal','poor','fair',  'very good','good'],
+  color:string = ['d','e', 'f',g', 'h','i','j', 'k','l','m','n', 'o','p','q', 'r','s','t','u', 'v', 'w', 'x', 'y', 'z'],
+  clarity:string = [ 'fl', 'if','vvs1', 'vvs2','vs1', 'vs2', 'si1', 'si2', 'si3', 'i1','i2','i3']
+  }
+ ```
+```
 
+* all the arrays near the params mean to show the available options
 
 ## Installation:
 
