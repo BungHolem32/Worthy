@@ -1,7 +1,8 @@
 import {validationResult} from 'express-validator/check';
 import calculatePrice from '../libararies/price-calculator';
-import resolveConfigurationByJewelryType from '../libararies/resolve-configuration-by-jewelry-type';
-
+import getResponseByType from '../libararies/get-response-by-type.js';
+import resolveConfigurationByJewelryType
+  from '../libararies/resolve-configuration-by-jewelry-type';
 
 class ApiController {
   /**
@@ -21,14 +22,20 @@ class ApiController {
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-      return res.status(422).json({errors: errors.array(), message:'you must fix these errors in order to get the response'});
+       return res.status(422).json(getResponseByType('unprocessable entity', errors.array()));
     }
 
     let jewelryData = req.body;
-    let configurations = await resolveConfigurationByJewelryType(jewelryData.type);
-    let price = await calculatePrice(jewelryData,configurations);
+    let configurations = await resolveConfigurationByJewelryType(
+        jewelryData.type);
 
-    res.json({status:res.statusCode,data:{price:price},message:'calculate the final price of jewelry according to his categories'})
+    if (configurations.error) {
+      return res.status(202).json(getResponseByType('no found', configurations));
+    }
+
+    let price = await calculatePrice(jewelryData, configurations);
+
+    res.json(getResponseByType('success', price));
   }
 }
 

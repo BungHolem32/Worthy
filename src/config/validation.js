@@ -71,7 +71,7 @@ let rules = {
     errorMessage: 'weight value must be numeric',
   },
   type: {
-    errorMessage: 'you must choose one of the following types : diamond, bracelet',
+    errorMessage: 'you must choose one of the following types:diamond',
     options: ['diamond', 'bracelet'],
   },
 };

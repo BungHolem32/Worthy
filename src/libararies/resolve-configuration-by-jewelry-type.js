@@ -18,23 +18,40 @@ import CategoryOptions from '../databases/models/category_option';
  * @returns {Promise<{jewelry: T | T, jewelryCategories: T | T, jewelryCategoriesIds: *, categoryOptions: T | T}>}
  */
 const resolveConfigurationByJewelryType = async type => {
+
   let jewelry = await (Jewelry(db.sequelize, db.Sequelize)).findOne(
-      {where: {name: type}}).then(jewelry => jewelry.toJSON());
+      {where: {name: type}}).then(jewelry => jewelry ? jewelry.toJSON() : {});
+
+  if (!Object.keys(jewelry).length) {
+    return {message:`no jewelry found with the name ${type}`,error:'no jewelry found'};
+  }
 
   let jewelryCategories = await (Categories(db.sequelize,
       db.Sequelize)).findAll({where: {jewelry_type_id: jewelry.id}}).
       then(categories =>
-        JSON.parse(JSON.stringify(categories))
+          JSON.parse(JSON.stringify(categories)),
       );
+
+  if (!jewelryCategories.length) {
+    return {message:`no categories found for jewelry ${jewelry.name}`, error:'no categories '}
+  }
 
   let jewelryCategoriesIds = jewelryCategories.map((categories) => {
     return categories.id;
   });
 
+  if (!jewelryCategoriesIds && !jewelryCategoriesIds.length) {
+    return {message:`no categories ids found for jewelry ${jewelry.name}`, error:'no category ids'}
+  }
+
   let categoryOptions = await (CategoryOptions(db.sequelize,
       db.Sequelize)).findAll(
       {whereIn: {[db.Sequelize.Op.in]: jewelryCategoriesIds}}).
       then((options) => JSON.parse(JSON.stringify(options)));
+
+  if (!categoryOptions) {
+    return {message:`no category options found for jewelry ${jewelry.name}`,error:'no category options'}
+  }
 
   return {jewelry, jewelryCategories, jewelryCategoriesIds, categoryOptions};
 };
