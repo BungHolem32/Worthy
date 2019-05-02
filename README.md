@@ -93,5 +93,12 @@ Please add a new feature to enable this.
   user => test
   password => test
   port => 3306
- ``` 	
+ ```
+#Tests
+tests was made in order to check functionality of feature - unit and integration
  
+in order to init tests you need to do the following steps:
+
+- open terminal
+- type npm run test
+- it will show you all related 
