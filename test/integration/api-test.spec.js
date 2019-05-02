@@ -46,30 +46,30 @@ describe('Jewelry Calculation Api Integration test', () => {
       });
     });
   });
-  //
-  // describe(' #POST /api/calculatePrice with params', () => {
-  //   let params = {
-  //     type: 'diamond',
-  //     weight: 10,
-  //     cut: 'very good',
-  //     color: 'e',
-  //     clarity: 'i2',
-  //   };
-  //
-  //   it('should return price', (done) => {
-  //     request(app).
-  //         post('/api/calculatePrice').
-  //         send(params).
-  //         set('Accept', 'application/json').
-  //         expect('Content-Type', /json/).
-  //         end((err, res) => {
-  //           if (err) return done(err);
-  //           expect(res.statusCode).to.equal(200);
-  //           expect(res.body).to.be.an('object');
-  //           expect(res.body.data).to.be.an('object');
-  //           expect(res.body.data.price).to.be.an('number');
-  //           done();
-  //         });
-  //   });
-  // });
+
+  describe(' #POST /api/calculatePrice with params', () => {
+    let params = {
+      type: 'diamond',
+      weight: 10,
+      cut: 'very good',
+      color: 'e',
+      clarity: 'i2',
+    };
+
+    it('should return price', (done) => {
+      request(app).
+          post('/api/calculatePrice').
+          send(params).
+          set('Accept', 'application/json').
+          expect('Content-Type', /json/).
+          end((err, res) => {
+            if (err) return done(err);
+            expect(res.statusCode).to.equal(200);
+            expect(res.body).to.be.an('object');
+            expect(res.body.data).to.be.an('object');
+            expect(res.body.data.price).to.be.an('number');
+            done();
+          });
+    });
+  });
 });
