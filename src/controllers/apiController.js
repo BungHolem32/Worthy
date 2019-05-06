@@ -5,6 +5,16 @@ import resolveConfigurationByJewelryType
   from '../libararies/resolve-configuration-by-jewelry-type';
 
 class ApiController {
+
+  /**
+   *
+   * @param req
+   * @param res
+   */
+  static index(req,res){
+      res.render('index')
+  }
+
   /**
    * Calculate Endpoint flow is:
    *  1. check validation.

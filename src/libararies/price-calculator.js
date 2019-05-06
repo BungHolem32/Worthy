@@ -1,15 +1,13 @@
 /**
  *
- *  Calculate Price according to 2 params:
- *  1. target data;
- *  2. related configurations
- *
+ *  Calculate Price according to there configuration:
+
  *  Method flow:
  *    1. distract relevant variables
  *    2. calculate base price
- *    3. iterate over all categories and sum price according to them
- *    4. add the base price to the sum
- *    5. return results
+ *    3. iterate over all categories and calculate ratio price
+ *    4. add the base price to the categoryPrice
+ *    5. return calculation
  *
  * @param target
  * @param configurations
@@ -18,16 +16,16 @@
 const calculatePrice = (target, configurations) => {
   let {jewelry, jewelryCategories, categoryOptions} = configurations;
   let basePrice = target.weight * jewelry.unit_price;
-  let price = 0;
+  let categoriesPrice = 0;
   jewelryCategories.forEach((category) => {
     let option = categoryOptions.filter((option) => {
       return option.name === target[category.name];
     });
 
-    price += (option[0]['percentage_value'] * basePrice) / 100;
+    categoriesPrice += (option[0]['percentage_value'] * basePrice) / 100;
   });
 
-  return price + basePrice;
+  return  basePrice + categoriesPrice;
 };
 
 export default calculatePrice;

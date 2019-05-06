@@ -21,23 +21,19 @@ Please add a new feature to enable this.
 - all other characteristics are based on this price and increase or decrease his worth in percentage.
 - jewelry table created for future extension in order to handle other use cases.
 
-##Usage:
- 
- this api response to http://localhost:3000/api/calculatePrice
- 
+## Usage:
+  
  ```
- 1. Method: POST
- 2. Params: {
-  weight :integer,
-  type:string ['diamond'], // other can be add for future usage
-  cut:string  = ['ideal','poor','fair',  'very good','good'],
-  color:string = ['d','e', 'f',g', 'h','i','j', 'k','l','m','n', 'o','p','q', 'r','s','t','u', 'v', 'w', 'x', 'y', 'z'],
-  clarity:string = [ 'fl', 'if','vvs1', 'vvs2','vs1', 'vs2', 'si1', 'si2', 'si3', 'i1','i2','i3']
+ 1. URL: http://localhost:3000/api/calculatePrice
+ 2. Method: POST
+ 3. Params: {
+  - weight :integer,
+  - type:string ['diamond'], // other can be add for future usage
+  - cut:string ['ideal','poor','fair',  'very good','good'],
+  - color:string ['d','e', 'f',g', 'h','i','j', 'k','l','m','n', 'o','p','q', 'r','s','t','u', 'v', 'w', 'x', 'y', 'z'],
+  - clarity:string [ 'fl', 'if','vvs1', 'vvs2','vs1', 'vs2', 'si1', 'si2', 'si3', 'i1','i2','i3']
   }
  ```
-```
-
-* all the arrays near the params mean to show the available options
 
 ## Installation:
 
@@ -45,6 +41,7 @@ Please add a new feature to enable this.
 - Open terminal
 - Cd into project
 - Configure your database information inside src/config/database.json
+
 ```{
   "development": {
     "username": "ilan",
@@ -76,10 +73,10 @@ Please add a new feature to enable this.
 - Type `npm install` 
 - Type `npx sequelize db:migrate`  to migrate all tables into your database.
 - Type `npx sequelize db:seed:all` to seed all random into into the tables.
-- Finally type `npm run server` and you ready to go. 	
- 	 	
- 	 	
-##Dockerized Database:
+- Finally type `npm run server` and you ready to go. 
+	
+
+## Dockerized Database:
  for your comfort there's also dockerized_database.
  _if you choose to use it do the following:_
  - Open terminal 
@@ -94,7 +91,9 @@ Please add a new feature to enable this.
   password => test
   port => 3306
  ```
-#Tests
+ 
+ 
+## Tests
 tests was made in order to check functionality of feature - unit and integration
  
 in order to init tests you need to do the following steps:

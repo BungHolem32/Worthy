@@ -2,7 +2,6 @@ import "@babel/polyfill";
 import express from 'express';
 import cors from 'cors';
 import logger from 'morgan';
-import path from 'path';
 
 import apiRouter from './routes/api';
 
@@ -13,7 +12,8 @@ app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.use(express.static(path.join(__dirname,'../public')));
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
 
 app.use('/api',apiRouter);
 

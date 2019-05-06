@@ -1,0 +1,41 @@
+doctype
+html
+  head
+    title #{title} Calcuator
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    header
+      h1 Worthy Diamond Calculator
+    .container
+      .main-content
+        h2 The Task:
+        p As a marketplace for luxury goods we want to be able to price items automatically. <br>
+        For simplicity purposes you can assume that the only item type being sold through Worthy is a diamond.
+         <br> Diamonds can be categorized by their Carat Weight, Cut, Color and Clarity Please add a new feature to enable this.
+        h2 The Mission
+        ul
+         li build generic feature that let user pass jewelry characteristics and return the final price according to them.
+        h2 Base assumptions:
+        ul
+         li all data that added into db was chosen randomly but can be change without code interactions.
+         li each jewelry has unit_price that related to it ,base on it weight ex: 1 carat = 100 dollar.
+         li related to the above the base price of each jewelry should be calculated up front ex: carat-weight * unit_price
+         li all other characteristics are based on this price and increase or decrease his worth in percentage.
+         li jewelry table created for future extension in order to handle other use cases.
+
+        h2 Usage:
+        ol
+         li Url:http://localhost:3000/api/calculatePrice
+         li Method: POST
+         li Params:
+         dd weight: integer
+         dd type:string ['diamond']
+         dd cut:string ['ideal','very good','good','fair','poor']
+         dd color:string ['d','e', 'f',g', 'h','i','j', 'k','l','m','n', 'o','p','q', 'r','s','t','u', 'v', 'w', 'x', 'y', 'z']
+         dd clarity:string [ 'fl', 'if','vvs1', 'vvs2','vs1', 'vs2', 'si1', 'si2', 'si3', 'i1','i2','i3']
+
+      .sidebar
+        block sidebar
+    footer
+      p for more information about this project:
+        a(href="https://github.com/BungHolem32/Worthy") Repository Link
