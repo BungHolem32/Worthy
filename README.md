@@ -1,6 +1,6 @@
 # Worthy - Home Assignment
 
-#### The Task:
+#### The Task
 
 As a marketplace for luxury goods we want to be able to price items
 automatically.
@@ -9,11 +9,11 @@ through Worthy is a diamond. Diamonds can be categorized by their Carat
 Weight, Cut, Color and Clarity
 Please add a new feature to enable this.
 
-## The Mission:
+#### The Mission:
 
 - build generic feature that let user pass jewelry characteristics and return the final price according to them.
 
-## Base assumptions:
+#### Base assumptions:
 
 - all data that added into db was chosen randomly but can be change without code interactions.
 - each jewelry has unit_price that related to it ,base on it weight ex: 1 carat = 100 dollar.
@@ -21,21 +21,7 @@ Please add a new feature to enable this.
 - all other characteristics are based on this price and increase or decrease his worth in percentage.
 - jewelry table created for future extension in order to handle other use cases.
 
-## Usage:
-  
- ```
- 1. URL: http://localhost:3000/api/calculatePrice
- 2. Method: POST
- 3. Params: {
-  - weight :integer,
-  - type:string ['diamond'], // other can be add for future usage
-  - cut:string ['ideal','poor','fair',  'very good','good'],
-  - color:string ['d','e', 'f',g', 'h','i','j', 'k','l','m','n', 'o','p','q', 'r','s','t','u', 'v', 'w', 'x', 'y', 'z'],
-  - clarity:string [ 'fl', 'if','vvs1', 'vvs2','vs1', 'vs2', 'si1', 'si2', 'si3', 'i1','i2','i3']
-  }
- ```
-
-## Installation:
+#### Installation:
 
 - Clone the following project from git repository: https://github.com/BungHolem32/Worthy
 - Open terminal
@@ -69,16 +55,31 @@ Please add a new feature to enable this.
   }
 }
 ```
+_PS - in case you want to use dockerized database follow the instruction at the bottom of the page._  
 
 - Type `npm install` 
 - Type `npx sequelize db:migrate`  to migrate all tables into your database.
-- Type `npx sequelize db:seed:all` to seed all random into into the tables.
-- Finally type `npm run server` and you ready to go. 
+- Type `npx sequelize db:seed:all` to seed random records into the tables.
+- Type `npm run server`. 
 	
 
-## Dockerized Database:
+#### Usage:
+  
+ ```
+ 1. URL: http://localhost:3000/api/calculatePrice
+ 2. Method: POST
+ 3. Params: {
+  - weight :integer,
+  - type:string ['diamond'], // other can be add for future usage
+  - cut:string ['ideal','poor','fair',  'very good','good'],
+  - color:string ['d','e', 'f',g', 'h','i','j', 'k','l','m','n', 'o','p','q', 'r','s','t','u', 'v', 'w', 'x', 'y', 'z'],
+  - clarity:string [ 'fl', 'if','vvs1', 'vvs2','vs1', 'vs2', 'si1', 'si2', 'si3', 'i1','i2','i3']
+  }
+ ```
+	
+
+#### Dockerized Database:
  for your comfort there's also dockerized_database.
- _if you choose to use it do the following:_
  - Open terminal 
  - Install docker according to the following details: [https://www.docker.com/get-started]
  - Cd into dockerized_database cd dockerized_database
@@ -92,8 +93,7 @@ Please add a new feature to enable this.
   port => 3306
  ```
  
- 
-## Tests
+#### Tests
 tests was made in order to check functionality of feature - unit and integration
  
 in order to init tests you need to do the following steps:
