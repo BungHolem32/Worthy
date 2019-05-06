@@ -1,7 +1,7 @@
 import db from '../databases/models';
 import Jewelry from '../databases/models/jewelry';
-import Categories from '../databases/models/category';
-import CategoryOptions from '../databases/models/category_option';
+import Category from '../databases/models/category';
+import CategoryOption from '../databases/models/category_option';
 
 /**
  * Get Configuration from database according the jewelry type
@@ -26,7 +26,7 @@ const resolveConfigurationByJewelryType = async type => {
     return {message:`no jewelry found with the name ${type}`,error:'no jewelry found'};
   }
 
-  let jewelryCategories = await (Categories(db.sequelize,
+  let jewelryCategories = await (Category(db.sequelize,
       db.Sequelize)).findAll({where: {jewelry_type_id: jewelry.id}}).
       then(categories =>
           JSON.parse(JSON.stringify(categories)),
@@ -44,7 +44,7 @@ const resolveConfigurationByJewelryType = async type => {
     return {message:`no categories ids found for jewelry ${jewelry.name}`, error:'no category ids'}
   }
 
-  let categoryOptions = await (CategoryOptions(db.sequelize,
+  let categoryOptions = await (CategoryOption(db.sequelize,
       db.Sequelize)).findAll(
       {whereIn: {[db.Sequelize.Op.in]: jewelryCategoriesIds}}).
       then((options) => JSON.parse(JSON.stringify(options)));

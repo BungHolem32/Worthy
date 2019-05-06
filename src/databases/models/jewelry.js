@@ -6,13 +6,6 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     timestamps: false,
     tableName: 'jewelries',
-    classMethods: {
-      associate: function(models) {
-        Jewelry.hasMany(models.categories, {
-          foreignKey: 'jewelry_type_id',
-        });
-      },
-    },
   });
 
   return Jewelry;
