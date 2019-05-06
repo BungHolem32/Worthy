@@ -55,7 +55,7 @@ Please add a new feature to enable this.
   }
 }
 ```
-_PS - in case you want to use dockerized database follow the instruction at the bottom of the page._  
+_PS - in case you want to use dockerized database follow the instruction at the bottom of the page._  [dockerized_database](#dockerized-database)
 
 - Type `npm install` 
 - Type `npx sequelize db:migrate`  to migrate all tables into your database.
