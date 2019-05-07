@@ -33,7 +33,7 @@ const resolveConfigurationByJewelryType = async type => {
       );
 
   if (!jewelryCategories.length) {
-    return {message:`no categories found for jewelry ${jewelry.name}`, error:'no categories '}
+    return {message:`no categories found for jewelry ${jewelry.name}`, error:'no categories found'}
   }
 
   let jewelryCategoriesIds = jewelryCategories.map((categories) => {

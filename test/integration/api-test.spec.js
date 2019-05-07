@@ -56,7 +56,7 @@ describe('Jewelry Calculation Api Integration test', () => {
       clarity: 'i2',
     };
 
-    it('should return price', (done) => {
+    it('should return expected price', (done) => {
       request(app).
           post('/api/calculatePrice').
           send(params).

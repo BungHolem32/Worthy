@@ -11,7 +11,8 @@
     "password": "ilan",
     "database": "worthy_test",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "port": "8888"
   },
   "production": {
     "username": "ilan",

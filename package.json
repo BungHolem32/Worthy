@@ -9,7 +9,7 @@
     "dev": "SET NODE_ENV=development & npm-run-all server",
     "clean": "rimraf dist",
     "watch": "nodemon",
-    "test": "./node_modules/.bin/mocha \\\"test/**/*.spec.js\\\" --require @babel/register"
+    "test": "./node_modules/.bin/mocha \\\"test/**/*.spec.js\\\" --exit --require @babel/register"
   },
   "keywords": [],
   "author": "",
