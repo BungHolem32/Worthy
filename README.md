@@ -82,9 +82,9 @@ _PS - in case you want to use dockerized database follow the instruction at the 
  for your comfort there's also dockerized_database.
  - Open terminal 
  - Install docker according to the following details: [https://www.docker.com/get-started]
- - Cd into dockerized_database cd dockerized_database
- - Type docker build -t test-mysql .
- - Type docker run -d -p 3306:3306 --name test-mysql -e MYSQL_ROOT_PASSWORD=root test-mysql
+ - Cd into dockerized_database `cd dockerized_database`
+ - Type `docker build -t test-mysql` .
+ - Type` docker run -d -p 3306:3306 --name test-mysql -e MYSQL_ROOT_PASSWORD=root test-mysql`
  
  - enter to the database with the following details:
  ```
@@ -94,10 +94,9 @@ _PS - in case you want to use dockerized database follow the instruction at the 
  ```
  
 #### Tests
-tests was made in order to check functionality of feature - unit and integration
+tests was made in order to check functionality and integration
  
 in order to init tests you need to do the following steps:
 
 - open terminal
-- type npm run test
-- it will show you all related 
+- type `npm run test`
